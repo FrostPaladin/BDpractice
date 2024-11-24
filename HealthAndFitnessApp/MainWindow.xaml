@@ -1,0 +1,89 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:av="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="av" x:Class="HealthAndFitnessApp.MainWindow"
+        Title="Health and Fitness App" Height="450" Width="800">
+    <Grid Background="#FFC5FFF8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="spBase" Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,10" Width="108">
+            <Button x:Name="btnLogin" Content="Логин" Click="btnLogin_Click" Margin="5" Width="92" Background="White" FontWeight="Bold" FontFamily="Arial Black" BorderBrush="White"/>
+            <Button x:Name="btnRegister" Content="Регистрация" Click="btnRegister_Click" Margin="5" Width="92" Background="White" FontWeight="Bold" FontFamily="Arial Black" BorderBrush="White"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spMain" Visibility="Collapsed">
+            <Button x:Name="btnAddUser" Content="Добавить пользователя" Click="btnAddUser_Click" Margin="5"/>
+            <Button x:Name="btnGetUsers" Content="Список пользователей" Click="btnGetUsers_Click" Margin="5"/>
+            <Button x:Name="btnUpdateUser" Content="Обновить информацию о пользователях" Click="btnUpdateUser_Click" Margin="5"/>
+            <Button x:Name="btnDeleteUser" Content="Удалить пользователя" Click="btnDeleteUser_Click" Margin="5"/>
+            <Button x:Name="btnSearchArticlesByCategory" Content="Поиск статьи по категории" Click="btnSearchArticlesByCategory_Click" Margin="5"/>
+            <Button x:Name="btnSearchArticlesByTag" Content="Поиск статьи по тегу" Click="btnSearchArticlesByTag_Click" Margin="5"/>
+            <Button x:Name="btnLogout" Content="Выйти из аккаунта" Click="btnLogout_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spRegister" Visibility="Collapsed">
+            <TextBlock Text="Регистрация" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtRegisterUsername" Text="Логин" Margin="5"/>
+            <TextBox x:Name="txtRegisterEmail" Text="Email" Margin="5"/>
+            <TextBox x:Name="txtRegisterPasswordHash" Text="Пароль" Margin="5"/>
+            <Button x:Name="btnSubmitRegister" Content="Отправить" Click="btnSubmitRegister_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spLogin" Visibility="Collapsed">
+            <TextBlock Text="Логин" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtLoginUsername" Text="Логин" Margin="5"/>
+            <PasswordBox x:Name="txtLoginPasswordHash" Margin="5"/>
+            <Button x:Name="btnSubmitLogin" Content="Отправить" Click="btnSubmitLogin_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spAddUser" Visibility="Collapsed">
+            <TextBlock Text="Добавить пользователя" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtAddUsername" Text="Никнейм" Margin="5"/>
+            <TextBox x:Name="txtAddEmail" Text="Email" Margin="5"/>
+            <TextBox x:Name="txtAddPasswordHash" Text="Пароль" Margin="5"/>
+            <Button x:Name="btnSubmitAddUser" Content="Отправить" Click="btnSubmitAddUser_Click" Margin="5"/>
+            <Button x:Name="btnBackFromAddUser" Content="Назад" Click="btnBackFromAddUser_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spUpdateUser" Visibility="Collapsed">
+            <TextBlock Text="Обновить данные пользователя" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtUpdateUserId" Text="Пользователь ID" Margin="5"/>
+            <TextBox x:Name="txtUpdateUsername" Text="Ник" Margin="5"/>
+            <TextBox x:Name="txtUpdateEmail" Text="Email" Margin="5"/>
+            <TextBox x:Name="txtUpdatePasswordHash" Text="Пароль" Margin="5"/>
+            <Button x:Name="btnSubmitUpdateUser" Content="Отправить" Click="btnSubmitUpdateUser_Click" Margin="5"/>
+            <Button x:Name="btnBackFromUpdateUser" Content="Назад" Click="btnBackFromUpdateUser_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spDeleteUser" Visibility="Collapsed">
+            <TextBlock Text="Удалить пользователя" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtDeleteUserId" Text="Пользователь ID" Margin="5"/>
+            <Button x:Name="btnSubmitDeleteUser" Content="Отправить" Click="btnSubmitDeleteUser_Click" Margin="5"/>
+            <Button x:Name="btnBackFromDeleteUser" Content="Назад" Click="btnBackFromDeleteUser_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spSearchArticlesByCategory" Visibility="Collapsed">
+            <TextBlock Text="Поиск статьи по категории" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtSearchCategoryId" Text="ID категории" Margin="5"/>
+            <Button x:Name="btnSubmitSearchArticlesByCategory" Content="Отправить" Click="btnSubmitSearchArticlesByCategory_Click" Margin="5"/>
+            <ListBox x:Name="lbSearchArticlesByCategory" Margin="5"/>
+            <Button x:Name="btnBackFromSearchArticlesByCategory" Content="Назад" Click="btnBackFromSearchArticlesByCategory_Click" Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" x:Name="spSearchArticlesByTag" Visibility="Collapsed">
+            <TextBlock Text="Поиск статьи по тегу" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="txtSearchTagId" Text="ID тега" Margin="5"/>
+            <Button x:Name="btnSubmitSearchArticlesByTag" Content="Отправить" Click="btnSubmitSearchArticlesByTag_Click" Margin="5"/>
+            <ListBox x:Name="lbSearchArticlesByTag" Margin="5"/>
+            <Button x:Name="btnBackFromSearchArticlesByTag" Content="Назад" Click="btnBackFromSearchArticlesByTag_Click" Margin="5"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" x:Name="spGetUsers" Visibility="Collapsed">
+            <TextBlock Text="Пользователи" FontSize="20" HorizontalAlignment="Center" Margin="10"/>
+            <ListBox x:Name="lbUsers" Margin="5"/>
+            <Button x:Name="btnBackFromGetUsers" Content="Назад" Click="btnBackFromGetUsers_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
